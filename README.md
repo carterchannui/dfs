@@ -1,3 +1,3 @@
 # DFS
 
-DFS is a distributed file system that is built for streaming services.
+DFS is a distributed file system built for streaming services.
