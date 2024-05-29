@@ -12,4 +12,4 @@ main.o: main.cpp
 	$(CXX) $(CXXFLAGS) -o main.o -c main.cpp
 
 clean:
-	rm -f dfs main.o retrieved_video.mp4
+	rm -f dfs main.o retrieved_video.mp4 encoded_video_file.mp4

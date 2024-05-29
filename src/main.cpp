@@ -7,10 +7,13 @@
 #include <openssl/sha.h>
 
 dht::DhtRunner node;
-const size_t CHUNK_SIZE = 64000; // ~64KB
+const size_t CHUNK_SIZE = 64000; // ~64KiB
 
 std::vector<std::vector<uint8_t>> partition_video(const std::string& filename) {
-    std::ifstream file(filename, std::ios::binary);
+    std::string ffmpeg_command = "ffmpeg -i " + filename + " -vcodec libx264 " + "encoded_" + filename;
+    std::system(ffmpeg_command.c_str()); // Encode file using H264 codec
+
+    std::ifstream file("encoded_" + filename, std::ios::binary);
     std::vector<std::vector<uint8_t>> chunks;
 
     if (file.is_open()) {
